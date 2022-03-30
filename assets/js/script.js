@@ -84,18 +84,24 @@ startButton.addEventListener("click", function(){
 
 timer();
 
-//randomly select first question
-var quizArray = quizArray[Math.floor(Math.random() * quizArray.length)];
-console.log(quizArray);
-//create new div for question and corresponding answers
-var newDiv = document.createElement("div");
-newDiv.id = "container";
-newDiv.innerHTML = quizArray;
-document.main.appendChild(newDiv);
-//display question and corresponding answers
+function quiz() {
+    if (startButton.style.display === "none") {
+        //randomly select quiz question
+        var quizArray = quizArray[Math.floor(Math.random) * quizArray];
+        console.log(quizArray);
+    }
 
-//correct answer is logged to the variable score
+    //create new div for question and corresponding answers
+    var newDiv = document.createElement("div");
+    newDiv.id = "container";
+    newDiv.innerHTML = quizArray;
+    //display question and corresponding answers
+    document.main.appendChild(newDiv);
+    //correct answer is logged to the variable score
 
-//after the last question the player is presented with their score
+    //after the last question the player is presented with their score
 
-//if the player highscore is equal to or greater than the current high score, replace current high score with the player highscore
+    //if the player highscore is equal to or greater than the current high score, replace current high score with the player highscore
+};
+
+quiz();
