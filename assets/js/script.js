@@ -63,22 +63,26 @@ var quizArray = [
 startButton.addEventListener("click", function(){
     //when start button is clicked the button disappears and the timer starts counting down from 30 seconds
     startButton.style.display = "none";
+
+    //timer function
+    function timer() {
+    var countdown = 30;
+        var coundownFunction = setInterval(function() {
+            if (countdown > 1) {
+                timerEl.textContent = countdown + " seconds";
+                countdown--;
+            } else {
+                timerEl.textContent = "";
+                clearInterval(coundownFunction);
+                displayMessage();
+            }
+        }, 1000)
+    }
+
+    timer();
 })
 
-//timer function
-function timer() {
-    var countdown = 30;
-    var coundownFunction = setInterval(function() {
-        if (countdown > 1) {
-            timerEl.textContent = countdown + " seconds";
-            countdown--;
-        } else {
-            timerEl.textContent = "";
-            clearInterval(coundownFunction);
-            displayMessage();
-        }
-    }, 1000)
-}
+timer();
 
 //randomly select first question
 var quizArray = quizArray[Math.floor(Math.random() * quizArray.length)];
