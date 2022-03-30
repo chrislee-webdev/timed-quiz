@@ -74,7 +74,7 @@ startButton.addEventListener("click", function(){
             } else {
                 timerEl.textContent = "";
                 clearInterval(coundownFunction);
-                displayMessage();
+                displayMessage("You're time is up!");
             }
         }, 1000)
     }
