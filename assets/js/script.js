@@ -74,15 +74,17 @@ startButton.addEventListener("click", function(){
             } else {
                 timerEl.textContent = "";
                 clearInterval(coundownFunction);
-                displayMessage("You're time is up!");
+                document.body.textContent = "Your time is up!"
             }
         }, 1000)
     }
+
+    timer();
 });
 
 for (let i = 0; i < quizArray.length; i++) {
-    var quizArray = quizArray[Math.floor(Math.random() * quizArray.length)];
-    console.log(quizArray);
+    var quizQuestion = quizArray[Math.floor(Math.random() * quizArray.length)];
+    console.log(quizQuestion);
 }
 
 function quiz() {
