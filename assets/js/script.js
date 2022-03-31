@@ -2,6 +2,8 @@
 var startButton = document.querySelector("#start");
 //variable for timer countdown
 var timerEl = document.getElementById("timerEl")
+//variable for quiz questions and to display time up
+var quizSection = document.getElementById(quizSection);
 //variable for score(number of questions answered correctly)
 var score = 0;
 
@@ -74,19 +76,32 @@ startButton.addEventListener("click", function(){
             } else {
                 timerEl.textContent = "";
                 clearInterval(coundownFunction);
-                document.body.textContent = "Your time is up!"
+                quizSection.appendChild("Your time is up!")
             }
-        }, 1000)
+        }, 1000);
+
+        for (let i = 0; i < quizArray.length; i++) {
+            quizArray[Math.floor(Math.random() * quizArray.length)];
+            console.log(quizArray);
+        }
+        //Parent Element
+        var quizSection = document.getElementById("quizSection");
+        //New list item
+        var newListItem = document.createElement("li");
+        newListItem.textContent = quizArray;
+        quizSection.appendChild(newListItem);
     }
 
     timer();
 });
 
-for (let i = 0; i < quizArray.length; i++) {
-    var quizQuestion = quizArray[Math.floor(Math.random() * quizArray.length)];
-    console.log(quizQuestion);
-}
-
-function quiz() {
-   
-};
+// for (let i = 0; i < quizArray.length; i++) {
+//     var quizQuestion = quizArray[Math.floor(Math.random() * quizArray.length)];
+//     console.log(quizQuestion);
+// }
+// //Parent Element
+// var quizSection = document.getElementById("quizSection");
+// //New list item
+// var newListItem = document.createElement("li");
+// newListItem.textContent = quizQuestion;
+// quizSection.appendChild(newListItem);
