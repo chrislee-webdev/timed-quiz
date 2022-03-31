@@ -3,7 +3,7 @@ var startButton = document.querySelector("#start");
 //variable for timer countdown
 var timerEl = document.getElementById("timerEl")
 //variable for quiz questions and to display "time's up" message
-var quizSection = document.getElementById(quizSection);
+var mainContent = document.getElementById('main-content');
 //variable for score(seconds left on countdown)
 var score = 0;
 
@@ -76,7 +76,7 @@ startButton.addEventListener("click", function(){
             } else {
                 timerEl.textContent = "";
                 clearInterval(coundownFunction);
-                quizSection.appendChild("Your time is up!")
+                mainContent.appendChild("Your time is up!")
             }
         }, 1000);
 
@@ -87,11 +87,11 @@ startButton.addEventListener("click", function(){
         }
         //Dynamically adding question to the browser
         //Parent Element
-        var quizSection = document.getElementById("quizSection");
+        var quizForm = document.getElementById("quizForm");
         //New list item
         var newQuestionItem = document.createElement("li");
-        newQuestionItem.textContent = quizArray;
-        quizSection.appendChild(newQuestionItem);
+        newQuestionItem.textContent = quizArray.question;
+        quizForm.appendChild(newQuestionItem);
     }
 
     timer();

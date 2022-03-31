@@ -29,7 +29,7 @@ header a {
     text-decoration: none;
 }
 
-#quiz {
+#main-content {
     margin: 50px;
     padding: 100px;
     text-align: center;
@@ -40,4 +40,8 @@ header a {
     background-color: lightgreen;
     padding: 15px;
     border-radius: 15px;
+}
+
+li {
+    text-decoration: none;
 }
