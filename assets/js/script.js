@@ -3,9 +3,13 @@ var startButton = document.querySelector("#start");
 //variable for timer countdown
 var timerEl = document.getElementById("timerEl")
 //variable for quiz questions and to display "time's up" message
-var mainContent = document.getElementById('main-content');
+var mainContent = document.getElementById("main-content");
 //variable for score(seconds left on countdown)
 var score = 0;
+//variable to hold question index number
+var quizArrayIndex = quizArray;
+//variable to keep track of questions
+var questionNumber = 0;
 
 //array of quiz questions and answers
 var quizArray = [
@@ -14,30 +18,30 @@ var quizArray = [
         answers: [
             "Atlanta Braves",
             "Milwaukee Brewers",
-            "Minnesota Twins", //correct answer
+            "Minnesota Twins", 
             "Cincinatti Reds" 
         ],
-        correctAnswer: 2
+        correctAnswer: "Minnesota Twins"
     },      
     {       
         question: "Which team lost Super Bowl 32",
         answers: [
             "Buffalo Bills",
-            "Green Bay Packers", //correct answer
+            "Green Bay Packers",
             "Seattle Seahawks",
             "Denver Broncos"
         ],
-        correctAnswer: 1
+        correctAnswer: "Green Bay Packers"
     },
     {
         question: "Which team won the 2019 Stanley Cup Finals",
         answers: [
             "Dallas Stars",
             "Los Angeles Kings",
-            "St. Louis Blues", //correct answer
+            "St. Louis Blues",
             "Toronto Maple Leafs"
         ],
-        correctAnswer: 2
+        correctAnswer: "St. Louis Blues"
     },
     {
         question: "Which team lost the 1979 NBA Finals",
@@ -45,19 +49,19 @@ var quizArray = [
             "Seattle Supersonics", 
             "Los Angeles Lakers",
             "Kansas City Kings",
-            "Washington Bullets" //correct answer
+            "Washington Bullets"
         ],
-        correctAnswer: 3
+        correctAnswer: "Washington Bullets"
     },
     {
         question: "Which team won the 2011 WNBA Finals",
         answers: [
-            "Minnesota Lynx", //correct answer
+            "Minnesota Lynx",
             "Chicago Sky",
             "New York Liberty",
             "Los Angeles Sparks"
         ],
-        correctAnswer: 0
+        correctAnswer: "Minnesota Lynx"
     }
 ]
 
@@ -65,7 +69,6 @@ var quizArray = [
 startButton.addEventListener("click", function(){
     //when start button is clicked the button disappears and the timer starts counting down from 30 seconds
     startButton.style.display = "none";
-
     //timer function
     function timer() {
     var countdown = 30;
@@ -76,34 +79,26 @@ startButton.addEventListener("click", function(){
             } else {
                 timerEl.textContent = "";
                 clearInterval(coundownFunction);
-                mainContent.appendChild("Your time is up!")
+                let timeUpDiv = document.createElement("div");
+                timeUpDiv.innerHTML = "<h1>Time's Up</h1>";
+                mainContent.appendChild(timeUpDiv);
             }
         }, 1000);
 
-        //Loop through quiz questions
-        for (let i = 0; i < quizArray.length; i++) {
-            quizArray[Math.floor(Math.random() * quizArray.length)];
-            console.log(quizArray);
-        }
-        //Dynamically adding question to the browser
-        //Parent Element
-        var quizForm = document.getElementById("quizForm");
-        //New list item
-        var newQuestionItem = document.createElement("li");
-        newQuestionItem.textContent = quizArray.question;
-        quizForm.appendChild(newQuestionItem);
+        //Commented out "for loop" per recommendation of AskBCS
+        // //Loop through quiz questions
+        // for (let i = 0; i < quizArray.length; i++) {
+        //     quizArray[Math.floor(Math.random() * quizArray.length)];
+        //     console.log(quizArray);
+        // }
+
     }
+
+    function quiz() {
+        if (startButton.style.display = "none") {
+            
+        }
+    };
 
     timer();
 });
-
-// for (let i = 0; i < quizArray.length; i++) {
-//     var quizQuestion = quizArray[Math.floor(Math.random() * quizArray.length)];
-//     console.log(quizQuestion);
-// }
-// //Parent Element
-// var quizSection = document.getElementById("quizSection");
-// //New list item
-// var newListItem = document.createElement("li");
-// newListItem.textContent = quizQuestion;
-// quizSection.appendChild(newListItem);
