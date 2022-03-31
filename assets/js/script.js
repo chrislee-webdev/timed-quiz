@@ -30,30 +30,30 @@ var quizArray = [
     {
         question: "Which team won the 2019 Stanley Cup Finals",
         answers: [
-        "Dallas Stars",
-        "Los Angeles Kings",
-        "St. Louis Blues", //correct answer
-        "Toronto Maple Leafs"
+            "Dallas Stars",
+            "Los Angeles Kings",
+            "St. Louis Blues", //correct answer
+            "Toronto Maple Leafs"
         ],
         correctAnswer: 2
     },
     {
         question: "Which team lost the 1979 NBA Finals",
         answers: [
-        "Seattle Supersonics", 
-        "Los Angeles Lakers",
-        "Kansas City Kings",
-        "Washington Bullets" //correct answer
+            "Seattle Supersonics", 
+            "Los Angeles Lakers",
+            "Kansas City Kings",
+            "Washington Bullets" //correct answer
         ],
         correctAnswer: 3
     },
     {
         question: "Which team won the 2011 WNBA Finals",
         answers: [
-        "Minnesota Lynx", //correct answer
-        "Chicago Sky",
-        "New York Liberty",
-        "Los Angeles Sparks"
+            "Minnesota Lynx", //correct answer
+            "Chicago Sky",
+            "New York Liberty",
+            "Los Angeles Sparks"
         ],
         correctAnswer: 0
     }
@@ -78,30 +78,13 @@ startButton.addEventListener("click", function(){
             }
         }, 1000)
     }
+});
 
-    timer();
-})
-
-timer();
+for (let i = 0; i < quizArray.length; i++) {
+    var quizArray = quizArray[Math.floor(Math.random() * quizArray.length)];
+    console.log(quizArray);
+}
 
 function quiz() {
-    if (startButton.style.display === "none") {
-        //randomly select quiz question
-        var quizArray = quizArray[Math.floor(Math.random) * quizArray];
-        console.log(quizArray);
-    }
-
-    //create new div for question and corresponding answers
-    var newDiv = document.createElement("div");
-    newDiv.id = "container";
-    newDiv.innerHTML = quizArray;
-    //display question and corresponding answers
-    document.main.appendChild(newDiv);
-    //correct answer is logged to the variable score
-
-    //after the last question the player is presented with their score
-
-    //if the player highscore is equal to or greater than the current high score, replace current high score with the player highscore
+   
 };
-
-quiz();
