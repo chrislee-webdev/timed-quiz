@@ -2,9 +2,9 @@
 var startButton = document.querySelector("#start");
 //variable for timer countdown
 var timerEl = document.getElementById("timerEl")
-//variable for quiz questions and to display time up
+//variable for quiz questions and to display "time's up" message
 var quizSection = document.getElementById(quizSection);
-//variable for score(number of questions answered correctly)
+//variable for score(seconds left on countdown)
 var score = 0;
 
 //array of quiz questions and answers
@@ -80,16 +80,18 @@ startButton.addEventListener("click", function(){
             }
         }, 1000);
 
+        //Loop through quiz questions
         for (let i = 0; i < quizArray.length; i++) {
             quizArray[Math.floor(Math.random() * quizArray.length)];
             console.log(quizArray);
         }
+        //Dynamically adding question to the browser
         //Parent Element
         var quizSection = document.getElementById("quizSection");
         //New list item
-        var newListItem = document.createElement("li");
-        newListItem.textContent = quizArray;
-        quizSection.appendChild(newListItem);
+        var newQuestionItem = document.createElement("li");
+        newQuestionItem.textContent = quizArray;
+        quizSection.appendChild(newQuestionItem);
     }
 
     timer();
