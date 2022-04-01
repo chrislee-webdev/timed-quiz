@@ -10,12 +10,15 @@ var score = 0;
 var quizArrayIndex = quizArray;
 //variable to keep track of questions
 var questionNumber = 0;
+//
+var quizContainer = document.getElementById("quizContainer")
+var startScreen = document.getElementById("startScreen")
 
 //array of quiz questions and answers
 var quizArray = [
     {
-        question: "Which team won the 1987 World Series",
-        answers: [
+        question: "Which team won the 1987 World Series:",
+        choices: [
             "Atlanta Braves",
             "Milwaukee Brewers",
             "Minnesota Twins", 
@@ -24,8 +27,8 @@ var quizArray = [
         correctAnswer: "Minnesota Twins"
     },      
     {       
-        question: "Which team lost Super Bowl 32",
-        answers: [
+        question: "Which team lost Super Bowl 32:",
+        choices: [
             "Buffalo Bills",
             "Green Bay Packers",
             "Seattle Seahawks",
@@ -34,8 +37,8 @@ var quizArray = [
         correctAnswer: "Green Bay Packers"
     },
     {
-        question: "Which team won the 2019 Stanley Cup Finals",
-        answers: [
+        question: "Which team won the 2019 Stanley Cup Finals:",
+        choices: [
             "Dallas Stars",
             "Los Angeles Kings",
             "St. Louis Blues",
@@ -44,7 +47,7 @@ var quizArray = [
         correctAnswer: "St. Louis Blues"
     },
     {
-        question: "Which team lost the 1979 NBA Finals",
+        question: "Which team lost the 1979 NBA Finals:",
         answers: [
             "Seattle Supersonics", 
             "Los Angeles Lakers",
@@ -55,7 +58,7 @@ var quizArray = [
     },
     {
         question: "Which team won the 2011 WNBA Finals",
-        answers: [
+        choices: [
             "Minnesota Lynx",
             "Chicago Sky",
             "New York Liberty",
@@ -82,6 +85,7 @@ startButton.addEventListener("click", function(){
                 let timeUpDiv = document.createElement("div");
                 timeUpDiv.innerHTML = "<h1>Time's Up</h1>";
                 mainContent.appendChild(timeUpDiv);
+                quizContainer.classList.add("hide");
             }
         }, 1000);
 
@@ -91,14 +95,41 @@ startButton.addEventListener("click", function(){
         //     quizArray[Math.floor(Math.random() * quizArray.length)];
         //     console.log(quizArray);
         // }
+        
+        //Create question div and append question
+        
 
+        //Create answer list and append choices
     }
 
-    function quiz() {
-        if (startButton.style.display = "none") {
-            
-        }
-    };
-
     timer();
+    getQuestion();
 });
+
+function getQuestion() {
+    quizContainer.classList.remove("hide");
+    startScreen.classList.add("hide");
+    let currentQuestionObj = quizArray[questionNumber];
+
+    var currentQuestion = document.createElement("h1");
+    currentQuestion.innerText = currentQuestionObj.question;
+    quizContainer.appendChild(currentQuestion);
+
+    for (let i = 0; i <= currentQuestionObj.choices.length; i++) {
+        let choiceAnchor = document.createElement("a");
+        var currentChoice = currentQuestionObj.choices[i];
+        choiceAnchor.setAttribute("value", currentChoice);
+        choiceAnchor.setAttribute("class", 'choiceBtn');
+        choiceAnchor.textContent = currentChoice;
+        quizContainer.appendChild(choiceAnchor);
+        console.log(choiceAnchor);
+    }
+}
+
+function answerClick () {
+
+}
+
+    //set attrribute to class,  choiceBtn
+    //style in CSS
+    //Set onClick property funtion to every choice. current value . correct answer
