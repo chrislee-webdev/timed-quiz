@@ -10,9 +10,12 @@ var score = 0;
 var quizArrayIndex = quizArray;
 //variable to keep track of questions
 var questionNumber = 0;
-//
-var quizContainer = document.getElementById("quizContainer")
-var startScreen = document.getElementById("startScreen")
+//variable for cointainer to hold the quiz
+var quizContainer = document.getElementById("quizContainer");
+//variable for startScren to hold startButton
+var startScreen = document.getElementById("startScreen");
+
+var choiceBtn = document.getElementsByClassName("choiceBtn");
 
 //array of quiz questions and answers
 var quizArray = [
@@ -126,10 +129,10 @@ function getQuestion() {
     }
 }
 
-function answerClick () {
 
-}
-
+ document.getElementsByClassName("choiceBtn").onClick = function guessAnswer() {
+     document.getElementsByClassName("choiceBtn").style= 'red';
+ }
     //set attrribute to class,  choiceBtn
     //style in CSS
     //Set onClick property funtion to every choice. current value . correct answer
