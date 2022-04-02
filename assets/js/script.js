@@ -15,7 +15,7 @@ var quizContainer = document.getElementById("quizContainer");
 //variable for startScren to hold startButton
 var startScreen = document.getElementById("startScreen");
 
-var choiceBtn = document.getElementsByClassName("choiceBtn");
+var choiceButton = document.getElementsByClassName("choiceButton");
 
 //array of quiz questions and answers
 var quizArray = [
@@ -27,7 +27,7 @@ var quizArray = [
             "Minnesota Twins", 
             "Cincinatti Reds" 
         ],
-        correctAnswer: "Minnesota Twins"
+        //correctAnswer: "Minnesota Twins"
     },      
     {       
         question: "Which team lost Super Bowl 32:",
@@ -37,7 +37,7 @@ var quizArray = [
             "Seattle Seahawks",
             "Denver Broncos"
         ],
-        correctAnswer: "Green Bay Packers"
+        //correctAnswer: "Green Bay Packers"
     },
     {
         question: "Which team won the 2019 Stanley Cup Finals:",
@@ -47,7 +47,7 @@ var quizArray = [
             "St. Louis Blues",
             "Toronto Maple Leafs"
         ],
-        correctAnswer: "St. Louis Blues"
+        //correctAnswer: "St. Louis Blues"
     },
     {
         question: "Which team lost the 1979 NBA Finals:",
@@ -57,7 +57,7 @@ var quizArray = [
             "Kansas City Kings",
             "Washington Bullets"
         ],
-        correctAnswer: "Washington Bullets"
+        //correctAnswer: "Washington Bullets"
     },
     {
         question: "Which team won the 2011 WNBA Finals",
@@ -67,7 +67,7 @@ var quizArray = [
             "New York Liberty",
             "Los Angeles Sparks"
         ],
-        correctAnswer: "Minnesota Lynx"
+        //correctAnswer: "Minnesota Lynx"
     }
 ]
 
@@ -119,20 +119,19 @@ function getQuestion() {
     quizContainer.appendChild(currentQuestion);
 
     for (let i = 0; i <= currentQuestionObj.choices.length; i++) {
-        let choiceAnchor = document.createElement("a");
+        let choiceButton = document.createElement("button");
         var currentChoice = currentQuestionObj.choices[i];
-        choiceAnchor.setAttribute("value", currentChoice);
-        choiceAnchor.setAttribute("class", 'choiceBtn');
-        choiceAnchor.textContent = currentChoice;
-        quizContainer.appendChild(choiceAnchor);
-        console.log(choiceAnchor);
+        choiceButton.setAttribute("value", currentChoice);
+        choiceButton.setAttribute("class", 'choiceBtn');
+        choiceButton.textContent = currentChoice;
+        quizContainer.appendChild(choiceButton);
+        console.log(choiceButton);
     }
 }
 
 
- document.getElementsByClassName("choiceBtn").onClick = function guessAnswer() {
-     document.getElementsByClassName("choiceBtn").style= 'red';
- }
-    //set attrribute to class,  choiceBtn
-    //style in CSS
-    //Set onClick property funtion to every choice. current value . correct answer
+ choiceButton.addEventListener("click", function(){
+     if (choiceButton.innerText === correctAnswer.innerText) {
+         choiceButton.display.style.background = "lightgreen";
+     }
+ });
